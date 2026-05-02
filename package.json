@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "docs": "vitepress dev lessons",
-    "docs:build": "vitepress build lessons"
+    "docs:build": "vitepress build lessons",
+    "agents": "node scripts/test-agent.mjs"
   },
   "dependencies": {
     "@ai-sdk/openai": "^3.0.55",

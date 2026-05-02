@@ -1,20 +1,20 @@
 export interface BaseElement {
-  id: string;
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  strokeColor: string;
-  backgroundColor: string;
-  fillStyle: string;
-  strokeWidth: "solid" | "hachure" | "cross-hatcher";
-  roughness: number;
-  strikeWidth: number;
-  opacity: number;
-  angle: number;
-  groupsIds: string[];
-  isDeleted: boolean;
-  boundElements: { id: string; type: "arrow" | "text" }[] | null;
+    id: string;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    strokeColor: string;
+    backgroundColor: string;
+    fillStyle: string;
+    strokeWidth: "solid" | "hachure" | "cross-hatcher";
+    roughness: number;
+    strikeWidth: number;
+    opacity: number;
+    angle: number;
+    groupsIds: string[];
+    isDeleted: boolean;
+    boundElements: { id: string; type: "arrow" | "text" }[] | null;
 }
 
 export interface RectangleElement extends BaseElement {
