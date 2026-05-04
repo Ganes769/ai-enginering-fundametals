@@ -1,14 +1,4 @@
-export interface Message {
-  id: string;
-  role: "user" | "assistant";
-  content: string;
-  toolCalls?: ToolCall[];
-}
+import type { UIMessage } from "ai";
 
-export interface ToolCall {
-  id: string;
-  name: string;
-  status: "running" | "complete" | "error";
-  args?: Record<string, unknown>;
-  result?: unknown;
-}
+/** Matches `useAgentChat` / AI SDK UI messages (see `parts`, not legacy `content`). */
+export type Message = UIMessage;
