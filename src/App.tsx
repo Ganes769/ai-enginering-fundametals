@@ -1,5 +1,4 @@
 import { useState, useCallback, useEffect, useRef } from "react";
-import type { ExcalidrawImperativeAPI } from "@excalidraw/excalidraw/types";
 import {
   convertToExcalidrawElements,
   CaptureUpdateAction,
