@@ -2,8 +2,8 @@ import { AIChatAgent } from "@cloudflare/ai-chat";
 import { streamText, convertToModelMessages, stepCountIs } from "ai";
 import { createOpenAI } from "@ai-sdk/openai";
 import { tools } from "./tool";
-import { extend } from "zod/mini";
 import { SYSTEM_PROMPT } from "./system-prompts";
+
 interface ENV {
   OPENAI_API_KEY: string;
 }
@@ -11,10 +11,11 @@ interface ENV {
 export class DesignAgent extends AIChatAgent<ENV> {
   async onChatMessage() {
     const openai = createOpenAI({
-      apiKey: this.onWorkflowEvent.OPENAI_API_KEY,
+      apiKey: this.env.OPENAI_API_KEY,
     });
+
     const result = streamText({
-      model: openai("gpt-5.4-mini"),
+      model: openai("gpt-5.1"),
       system: SYSTEM_PROMPT,
       messages: await convertToModelMessages(this.messages),
       tools: {
@@ -22,8 +23,13 @@ export class DesignAgent extends AIChatAgent<ENV> {
         modifyDiagram: tools.modifyDiagram,
       },
       stopWhen: stepCountIs(5),
-      providerOptions: { openai: { stringJsonSchema: false } },
+      providerOptions: {
+        openai: {
+          stringJsonSchema: false,
+        },
+      },
     });
+
     return result.toUIMessageStreamResponse();
   }
 }

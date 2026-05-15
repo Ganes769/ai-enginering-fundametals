@@ -106,8 +106,8 @@ export const tools = {
           "Fields to change. Set any field you don't want to touch to null.",
         ),
     }),
+    execute: async ({ elementId, updates }) => {
+      return { elementId, updates };
+    },
   }),
-  execute: async ({ elementId, updates }: any) => {
-    return { elementId, updates };
-  },
 };
