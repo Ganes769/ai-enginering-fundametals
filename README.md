@@ -72,12 +72,12 @@ npm install
 
 You need accounts at four services. Three are free with no credit card. One needs a credit card but the costs for this course are pennies.
 
-| Service            | Why                                                        | Cost                             | Credit card required? |
-| ------------------ | ---------------------------------------------------------- | -------------------------------- | --------------------- |
-| **OpenAI**         | LLM provider for the agent                                 | A few cents for the whole course | **Yes**               |
-| **Upstash Vector** | Vector store for RAG (lesson 8)                            | Free tier, very generous         | No                    |
-| **Braintrust**     | Eval platform (lessons 4+)                                 | Free tier                        | No                    |
-| **Tavily**         | Web search API for the agent's `searchWeb` tool (lesson 7) | Free tier, 1000 searches/month   | No                    |
+| Service | Why | Cost | Credit card required? |
+|---|---|---|---|
+| **OpenAI** | LLM provider for the agent | A few cents for the whole course | **Yes** |
+| **Upstash Vector** | Vector store for RAG (lesson 8) | Free tier, very generous | No |
+| **Braintrust** | Eval platform (lessons 4+) | Free tier | No |
+| **Tavily** | Web search API for the agent's `searchWeb` tool (lesson 7) | Free tier, 1000 searches/month | No |
 
 #### OpenAI
 
@@ -154,10 +154,3 @@ Everything runs locally. No deployment, no production cloud infrastructure.
 
 - The lesson notes have full code blocks, so any time you're stuck, the answer is probably in the next branch's notes.
 - Issues with the course material → open a GitHub issue.
-
-ai enfginer ginunad6enby is ther prcerdd og the takinga m =odle loke vchasthpt anbf training it for the dotbtrvdy ywg
-djewg yf asbf totk eojsdbvwv ykwnreiogr jwrbeupn
-
-# \'jeudwhug jhweih
-
-nsdqfbuqgwe8

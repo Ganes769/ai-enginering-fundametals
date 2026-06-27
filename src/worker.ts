@@ -1,17 +1,7 @@
-import { routeAgentRequest } from "agents";
-import { DesignAgent } from "./agent";
-export { DesignAgent };
-interface ENV {
-  DesignAgent: DurableObjectNamespace;
-  OPENAI_API_KEY: string;
-}
 export default {
-  async fetch(request: Request, env: ENV) {
-    return (
-      (await routeAgentRequest(request, env)) ||
-      new Response("Not found", { status: 404 })
-    );
+  fetch(_request: Request, _env: Env) {
+    return new Response("Not found", { status: 404 });
   },
-} satisfies ExportedHandler<ENV>;
+} satisfies ExportedHandler<Env>;
 
 interface Env {}
