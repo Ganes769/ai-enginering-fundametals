@@ -37,31 +37,17 @@ async function throttleRequests() {
   const elapsed = Date.now() - lastRequestAt;
   const waitMs = MIN_REQUEST_INTERVAL_MS - elapsed;
   if (waitMs > 0) {
-    process.stdout.write(`(waiting ${Math.ceil(waitMs / 1000)}s for rate limit) `);
+    process.stdout.write(
+      `(waiting ${Math.ceil(waitMs / 1000)}s for rate limit) `,
+    );
     await sleep(waitMs);
   }
   lastRequestAt = Date.now();
 }
 
 const openai = createOpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-  fetch: async (url, options) => {
-    for (let attempt = 0; attempt < MAX_RATE_LIMIT_RETRIES; attempt++) {
-      await throttleRequests();
-      const response = await fetch(url, options);
-      if (response.status !== 429) {
-        return response;
-      }
-      const body = await response.text();
-      const waitMs =
-        parseRateLimitDelayMs(body) ?? MIN_REQUEST_INTERVAL_MS;
-      process.stdout.write(
-        `(429, retry in ${Math.ceil(waitMs / 1000)}s) `,
-      );
-      await sleep(waitMs);
-    }
-    throw new Error("OpenAI rate limit persisted after retries");
-  },
+  baseURL: "http://127.0.0.1:11434/v1",
+  apiKey: "ollama",
 });
 
 function isRateLimitError(error: unknown): boolean {
@@ -77,16 +63,20 @@ async function runTestCae(testcase: TestCase): Promise<EvalResult> {
     for (let attempt = 0; attempt < MAX_RATE_LIMIT_RETRIES; attempt++) {
       try {
         results = await generateText({
-          model: openai("gpt-5.4-mini"),
+          model: openai.chat("qwen2.5:7b"),
           system: SYSTEM_PROMPT,
           prompt: testcase.input,
           tools,
           stopWhen: stepCountIs(5),
           maxRetries: 0,
+          temperature: 0,
         });
         break;
       } catch (error: unknown) {
-        if (!isRateLimitError(error) || attempt === MAX_RATE_LIMIT_RETRIES - 1) {
+        if (
+          !isRateLimitError(error) ||
+          attempt === MAX_RATE_LIMIT_RETRIES - 1
+        ) {
           throw error;
         }
         const message = error instanceof Error ? error.message : String(error);
@@ -143,7 +133,6 @@ async function main() {
   for (const testCase of testCases) {
     process.stdout.write(`[${testCase.id}] ${testCase.difficulty.padEnd(6)} `);
     const result = await runTestCae(testCase);
-    results.push(result);
     if (result.error) {
       console.log(`ERROR: ${result.error}`);
     } else {

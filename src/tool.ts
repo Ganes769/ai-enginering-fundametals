@@ -74,36 +74,27 @@ export const tools = {
   }),
   modifyDiagram: tool({
     description:
-      "Modify an existing element in canvas by id. Set only the field you want to change and everything else please leave it",
+      "Modify an existing element on the canvas by id. Include ONLY the fields you want to change in `updates`. Omit any field you do not want to touch — do not send null.",
     inputSchema: z.object({
       elementId: z.string().describe("The id of the element to modify"),
       updates: z
         .object({
-          x: z.number().nullable().describe("New x position, or null"),
-          y: z.number().nullable().describe("New y position, or null"),
-          width: z.number().nullable().describe("New width, or null"),
-          height: z.number().nullable().describe("New height, or null"),
-          text: z
-            .string()
-            .nullable()
-            .describe("New label or text content, or null"),
-          fontSize: z.number().nullable(),
-          textAlign: z.enum(["left", "center", "right"]).nullable(),
-          strokeColor: z
-            .string()
-            .nullable()
-            .describe("Hex stroke color, or null"),
-          backgroundColor: z
-            .string()
-            .nullable()
-            .describe("Hex fill color, or null"),
-          fillStyle: z.enum(["solid", "hachure", "cross-hatch"]).nullable(),
-          strokeWidth: z.number().nullable(),
-          roughness: z.number().nullable(),
-          opacity: z.number().nullable(),
+          x: z.number().optional().describe("New x position"),
+          y: z.number().optional().describe("New y position"),
+          width: z.number().optional().describe("New width"),
+          height: z.number().optional().describe("New height"),
+          text: z.string().optional().describe("New label or text content"),
+          fontSize: z.number().optional(),
+          textAlign: z.enum(["left", "center", "right"]).optional(),
+          strokeColor: z.string().optional().describe("Hex stroke color"),
+          backgroundColor: z.string().optional().describe("Hex fill color"),
+          fillStyle: z.enum(["solid", "hachure", "cross-hatch"]).optional(),
+          strokeWidth: z.number().optional(),
+          roughness: z.number().optional(),
+          opacity: z.number().optional(),
         })
         .describe(
-          "Fields to change. Set any field you don't want to touch to null.",
+          "Object containing only the fields to change. Omit unchanged fields entirely.",
         ),
     }),
     execute: async ({ elementId, updates }) => {

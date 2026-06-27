@@ -80,6 +80,17 @@ export default function App() {
             updates?: Record<string, unknown>;
           };
           if (output?.elementId && output.updates) {
+            // Filter out null/undefined values. Small models sometimes still
+            // emit `"width": null` for unchanged fields; passing those into
+            // newElementWith would clobber the element with null and break
+            // rendering. We only forward fields with concrete values.
+            const cleanUpdates = Object.fromEntries(
+              Object.entries(output.updates).filter(
+                ([, v]) => v !== null && v !== undefined,
+              ),
+            );
+            if (Object.keys(cleanUpdates).length === 0) return;
+
             // Use Excalidraw's `newElementWith` helper to merge updates into
             // the matching element. It bumps version + versionNonce + the
             // updated timestamp the way the reconciler expects.
@@ -88,7 +99,7 @@ export default function App() {
             const current = excalidrawAPI.getSceneElements();
             const next = current.map((el) =>
               el.id === output.elementId
-                ? newElementWith(el, output.updates as never)
+                ? newElementWith(el, cleanUpdates as never)
                 : el,
             );
             excalidrawAPI.updateScene({
