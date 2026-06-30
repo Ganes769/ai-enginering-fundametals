@@ -1,0 +1,216 @@
+[
+  {
+    "testCaseId": "create-simple-03",
+    "input": "Draw a simple flowchart with Start, Process, and End boxes connected by arrows",
+    "response": "It seems there's an issue with the coordinates for one of the arrow points. Let me correct that and try again.\n\n",
+    "elements": [],
+    "durationMs": 31615
+  },
+  {
+    "testCaseId": "create-simple-04",
+    "input": "Draw a diamond labeled 'Decision' with two arrows coming out of it labeled 'Yes' and 'No'",
+    "response": "Your diagram has been created with a diamond labeled 'Decision' and two arrows coming out of it, one labeled 'Yes' and the other 'No'.",
+    "elements": [
+      {
+        "id": "diamond-1",
+        "type": "diamond",
+        "x": 200,
+        "y": 150,
+        "height": 60,
+        "width": 80,
+        "strokeColor": "#1e1e1e",
+        "backgroundColor": "transparent",
+        "fillStyle": "solid",
+        "strokeWidth": 2,
+        "roughness": 1,
+        "opacity": 100,
+        "fontSize": 20,
+        "textAlign": "center"
+      },
+      {
+        "id": "text-1",
+        "type": "text",
+        "x": 185,
+        "y": 135,
+        "height": 40,
+        "width": 60,
+        "strokeColor": "#1e1e1e",
+        "backgroundColor": "transparent",
+        "fillStyle": "solid",
+        "strokeWidth": 2,
+        "roughness": 1,
+        "opacity": 100,
+        "text": "Decision",
+        "fontSize": 20,
+        "textAlign": "center"
+      },
+      {
+        "id": "arrow-1",
+        "type": "arrow",
+        "x": 235,
+        "y": 190,
+        "height": 40,
+        "width": 60,
+        "strokeColor": "#1e1e1e",
+        "backgroundColor": "transparent",
+        "fillStyle": "solid",
+        "strokeWidth": 2,
+        "roughness": 1,
+        "opacity": 100,
+        "fontSize": 20,
+        "points": [
+          [
+            235,
+            190
+          ],
+          [
+            285,
+            240
+          ]
+        ],
+        "textAlign": "center"
+      },
+      {
+        "id": "text-2",
+        "type": "text",
+        "x": 275,
+        "y": 225,
+        "height": 40,
+        "width": 60,
+        "strokeColor": "#1e1e1e",
+        "backgroundColor": "transparent",
+        "fillStyle": "solid",
+        "strokeWidth": 2,
+        "roughness": 1,
+        "opacity": 100,
+        "text": "Yes",
+        "fontSize": 20,
+        "textAlign": "center"
+      },
+      {
+        "id": "arrow-2",
+        "type": "arrow",
+        "x": 235,
+        "y": 110,
+        "height": 40,
+        "width": 60,
+        "strokeColor": "#1e1e1e",
+        "backgroundColor": "transparent",
+        "fillStyle": "solid",
+        "strokeWidth": 2,
+        "roughness": 1,
+        "opacity": 100,
+        "fontSize": 20,
+        "points": [
+          [
+            235,
+            110
+          ],
+          [
+            285,
+            60
+          ]
+        ],
+        "textAlign": "center"
+      },
+      {
+        "id": "text-3",
+        "type": "text",
+        "x": 275,
+        "y": 85,
+        "height": 40,
+        "width": 60,
+        "strokeColor": "#1e1e1e",
+        "backgroundColor": "transparent",
+        "fillStyle": "solid",
+        "strokeWidth": 2,
+        "roughness": 1,
+        "opacity": 100,
+        "text": "No",
+        "fontSize": 20,
+        "textAlign": "center"
+      }
+    ],
+    "durationMs": 22839
+  },
+  {
+    "testCaseId": "create-simple-05",
+    "input": "Draw three rectangles in a vertical column labeled Top, Middle, Bottom",
+    "response": "Your diagram with three rectangles labeled Top, Middle, and Bottom has been created. Each rectangle is positioned vertically below the other with a 40x80 size and centered text.",
+    "elements": [
+      {
+        "id": "rect-1",
+        "type": "rectangle",
+        "x": 50,
+        "y": 20,
+        "height": 40,
+        "width": 80,
+        "strokeColor": "#1e1e1e",
+        "backgroundColor": "transparent",
+        "fillStyle": "solid",
+        "strokeWidth": 2,
+        "roughness": 1,
+        "opacity": 100,
+        "text": "Top",
+        "fontSize": 20,
+        "textAlign": "center"
+      },
+      {
+        "id": "rect-2",
+        "type": "rectangle",
+        "x": 50,
+        "y": 70,
+        "height": 40,
+        "width": 80,
+        "strokeColor": "#1e1e1e",
+        "backgroundColor": "transparent",
+        "fillStyle": "solid",
+        "strokeWidth": 2,
+        "roughness": 1,
+        "opacity": 100,
+        "text": "Middle",
+        "fontSize": 20,
+        "textAlign": "center"
+      },
+      {
+        "id": "rect-3",
+        "type": "rectangle",
+        "x": 50,
+        "y": 120,
+        "height": 40,
+        "width": 80,
+        "strokeColor": "#1e1e1e",
+        "backgroundColor": "transparent",
+        "fillStyle": "solid",
+        "strokeWidth": 2,
+        "roughness": 1,
+        "opacity": 100,
+        "text": "Bottom",
+        "fontSize": 20,
+        "textAlign": "center"
+      }
+    ],
+    "durationMs": 6262
+  },
+  {
+    "testCaseId": "create-medium-01",
+    "input": "Draw a login flow: user enters credentials, system validates, if valid go to dashboard, if invalid show error",
+    "response": "It seems there was an issue with the diagram elements. Let's correct it by ensuring all required fields are properly defined.\n\nI will re-generate the diagram with the necessary dimensions and positions.\n",
+    "elements": [],
+    "durationMs": 39066
+  },
+  {
+    "testCaseId": "create-complex-03",
+    "input": "Draw a complex e-commerce checkout flow with 8 steps: Cart Review, Shipping Address, Shipping Method, Payment, Order Review, Place Order, Confirmation, Email Receipt. Include error paths if payment fails.",
+    "response": "",
+    "elements": [],
+    "durationMs": 79679
+  },
+  {
+    "testCaseId": "domain-01",
+    "input": "Draw the OAuth 2.0 authorization code flow",
+    "response": "It seems there is a persistent issue with the diagram elements. Let's ensure all required fields are correctly specified.\n\nHere is the corrected JSON for generating the OAuth 2.0 authorization code flow:\n\n```json\n{\n  \"elements\": [\n    {\n      \"id\": \"rect-1\",\n      \"type\": \"rectangle\",\n      \"x\": 50,\n      \"y\": 50,\n      \"width\": 300,\n      \"height\": 70,\n      \"strokeColor\": \"#1e1e1e\",\n      \"backgroundColor\": \"transparent\",\n      \"fillStyle\": \"solid\",\n      \"strokeWidth\": 2\n    },\n    {\n      \"id\": \"ellipse-2\",\n      \"type\": \"ellipse\",\n      \"x\": 400,\n      \"y\": 100,\n      \"width\": 80,\n      \"height\": 80,\n      \"strokeColor\": \"#1e1e1e\",\n      \"backgroundColor\": \"transparent\",\n      \"fillStyle\": \"solid\",\n      \"strokeWidth\": 2\n    },\n    {\n      \"id\": \"rect-3\",\n      \"type\": \"rectangle\",\n      \"x\": 500,\n      \"y\": 70,\n      \"width\": 200,\n      \"height\": 60,\n      \"strokeColor\": \"#1e1e1e\",\n      \"backgroundColor\": \"transparent\",\n      \"fillStyle\": \"solid\",\n      \"strokeWidth\": 2\n    },\n    {\n      \"id\": \"rect-4\",\n      \"type\": \"rectangle\",\n      \"x\": 500,\n      \"y\": 130,\n      \"width\": 200,\n      \"height\": 60,\n      \"strokeColor\": \"#1e1e1e\",\n      \"backgroundColor\": \"transparent\",\n      \"fillStyle\": \"solid\",\n      \"strokeWidth\": 2\n    },\n    {\n      \"id\": \"rect-5\",\n      \"type\": \"rectangle\",\n      \"x\": 700,\n      \"y\": 90,\n      \"width\": 200,\n      \"height\": 40,\n      \"strokeColor\": \"#1e1e1e\",\n      \"backgroundColor\": \"transparent\",\n      \"fillStyle\": \"solid\",\n      \"strokeWidth\": 2\n    },\n    {\n      \"id\": \"arrow-6\",\n      \"type\": \"arrow\",\n      \"x\": 180,\n      \"y\": 135,\n      \"points\": [[180, 135], [270, 135]],\n      \"strokeColor\": \"#1e1e1e\",\n      \"strokeWidth\": 2\n    },\n    {\n      \"id\": \"arrow-7\",\n      \"type\": \"arrow\",\n      \"x\": 690,\n      \"y\": 125,\n      \"points\": [[690, 125], [780, 125]],\n      \"strokeColor\": \"#1e1e1e\",\n      \"strokeWidth\": 2\n    },\n    {\n      \"id\": \"text-8\",\n      \"type\": \"text\",\n      \"x\": 300,\n      \"y\": 140,\n      \"text\": \"User grants consent\"\n    }\n  ]\n}\n```\n\nLet's try sending this corrected JSON again.",
+    "elements": [],
+    "durationMs": 68846
+  }
+]

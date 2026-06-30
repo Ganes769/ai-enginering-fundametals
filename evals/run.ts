@@ -1,11 +1,11 @@
-import { tools } from "../src/tool";
-import { SYSTEM_PROMPT } from "../src/system-prompts";
+import { tools } from "../src/tool.ts";
+import { SYSTEM_PROMPT } from "../src/system-prompts.ts";
 import { createOpenAI } from "@ai-sdk/openai";
 import { join, dirname } from "node:path";
 import { generateText, stepCountIs } from "ai";
 import { fileURLToPath } from "node:url";
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
-import { EvalResult, TestCase } from "./type";
+import type { EvalResult, TestCase } from "./type.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -133,6 +133,7 @@ async function main() {
   for (const testCase of testCases) {
     process.stdout.write(`[${testCase.id}] ${testCase.difficulty.padEnd(6)} `);
     const result = await runTestCae(testCase);
+    results.push(result);
     if (result.error) {
       console.log(`ERROR: ${result.error}`);
     } else {
